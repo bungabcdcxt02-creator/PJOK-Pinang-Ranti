@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Soal PJOK Kelas 6 - Interaktif</title>
+<style>body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:20px auto;padding:20px}h1{background:#0b79d0;color:#fff;padding:10px}section{margin:15px 0;padding:10px;border:1px solid #ddd;border-radius:6px}button{background:#0b79d0;color:#fff;border:none;padding:8px 12px;border-radius:4px;cursor:pointer}label{display:block;margin:6px 0}input[type=text]{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px}</style>
+</head>
+<body>
+<h1>Soal PJOK Kelas 6 - Interaktif</h1>
+<p>Petunjuk: Jawab setiap soal lalu klik "Periksa" untuk melihat umpan balik. Pada bagian akhir ada kunci jawaban lengkap.</p>
+
+<section id="s1">
+<h2>1. Pilihan ganda - Senam Lantai</h2>
+<p>Gerakan yang benar urutan langkah roll depan adalah:</p>
+<form id="f1">
+<label><input type="radio" name="q1" value="a"> Jongkok, telapak tangan di matras, angkat pinggul, masukkan kepala, gulingkan ke depan.</label>
+<label><input type="radio" name="q1" value="b"> Berdiri, lari, lompat, guling ke depan.</label>
+<label><input type="radio" name="q1" value="c"> Berdiri, tangan di pinggang, gulung ke belakang.</label>
+<button type="button" onclick="check1()">Periksa</button>
+<div id="r1" style="margin-top:8px;font-weight:600"></div>
+</form>
+</section>
+
+<section id="s2">
+<h2>2. Pilihan ganda - Sikap Lilin</h2>
+<p>Deskripsi yang benar untuk sikap lilin adalah:</p>
+<form id="f2">
+<label><input type="radio" name="q2" value="a"> Kedua kaki lurus di atas, pinggul ditopang oleh tangan.</label>
+<label><input type="radio" name="q2" value="b"> Duduk dengan kaki ditekuk, tangan di samping.</label>
+<label><input type="radio" name="q2" value="c"> Berdiri dengan satu kaki diangkat.</label>
+<button type="button" onclick="check2()">Periksa</button>
+<div id="r2" style="margin-top:8px;font-weight:600"></div>
+</form>
+</section>
+
+<section id="s3">
+<h2>3. Pilihan ganda - Senam Irama</h2>
+<p>Gerakan v-step termasuk dalam kelompok:</p>
+<form id="f3">
+<label><input type="radio" name="q3" value="a"> Senam irama.</label>
+<label><input type="radio" name="q3" value="b"> Renang.</label>
+<label><input type="radio" name="q3" value="c"> Sepak bola.</label>
+<button type="button" onclick="check3()">Periksa</button>
+<div id="r3" style="margin-top:8px;font-weight:600"></div>
+</form>
+</section>
+
+<section id="s4">
+<h2>4. Isian singkat - Pernapasan</h2>
+<p>Cara pengambilan napas dasar yang benar menurut kisi-kisi: (isi singkat)</p>
+<input type="text" id="q4" placeholder="Contoh: Ambil nafas dari...">
+<button type="button" onclick="check4()">Periksa</button>
+<div id="r4" style="margin-top:8px;font-weight:600"></div>
+</section>
+
+<section id="s5">
+<h2>5. Pilihan ganda - Sepak Bola</h2>
+<p>Jumlah pemain dalam satu tim sepak bola adalah:</p>
+<form id="f5">
+<label><input type="radio" name="q5" value="a"> 7 pemain.</label>
+<label><input type="radio" name="q5" value="b"> 11 pemain.</label>
+<label><input type="radio" name="q5" value="c"> 5 pemain.</label>
+<button type="button" onclick="check5()">Periksa</button>
+<div id="r5" style="margin-top:8px;font-weight:600"></div>
+</form>
+</section>
+
+<section id="s6">
+<h2>Kunci Jawaban</h2>
+<ol>
+<li>1-a: Roll depan langkah urut: jongkok, telapak tangan di matras, angkat pinggul, masukkan kepala, gulingkan.</li>
+<li>2-a: Sikap lilin = kedua kaki lurus di atas dan pinggul ditopang oleh tangan.</li>
+<li>3-a: V-step termasuk senam irama (variasi langkah).</li>
+<li>4: "Ambil nafas dari mulut, buang lewat hidung dengan membuat gelembung".</li>
+<li>5-b: Sepak bola = 11 pemain per tim.</li>
+</ol>
+</section>
+
+<script>
+function check1(){var v=document.querySelector('input[name=q1]:checked');var r=document.getElementById('r1');if(!v){r.textContent='Pilih jawaban dulu.';r.style.color='red';return;}if(v.value==='a'){r.textContent='Benar. Urutan sesuai langkah roll depan.';r.style.color='green'}else{r.textContent='Salah. Jawaban benar: a.';r.style.color='red'}}
+function check2(){var v=document.querySelector('input[name=q2]:checked');var r=document.getElementById('r2');if(!v){r.textContent='Pilih jawaban dulu.';r.style.color='red';return;}if(v.value==='a'){r.textContent='Benar. Itu deskripsi sikap lilin.';r.style.color='green'}else{r.textContent='Salah. Jawaban benar: a.';r.style.color='red'}}
+function check3(){var v=document.querySelector('input[name=q3]:checked');var r=document.getElementById('r3');if(!v){r.textContent='Pilih jawaban dulu.';r.style.color='red';return;}if(v.value==='a'){r.textContent='Benar.';r.style.color='green'}else{r.textContent='Salah. Jawaban benar: a.';r.style.color='red'}}
+function check4(){var v=document.getElementById('q4').value.trim().toLowerCase();var r=document.getElementById('r4');if(!v){r.textContent='Isi jawaban dulu.';r.style.color='red';return;}if(v.includes('mulut')&&v.includes('hidung')){r.textContent='Benar. Pernapasan dasar: ambil lewat mulut, buang lewat hidung, buat gelembung.';r.style.color='green'}else{r.textContent='Periksa kembali. Contoh jawaban: Ambil nafas dari mulut, buang lewat hidung dengan membuat gelembung.';r.style.color='red'}}
+function check5(){var v=document.querySelector('input[name=q5]:checked');var r=document.getElementById('r5');if(!v){r.textContent='Pilih jawaban dulu.';r.style.color='red';return;}if(v.value==='b'){r.textContent='Benar. Sepak bola 11 pemain per tim.';r.style.color='green'}else{r.textContent='Salah. Jawaban benar: b.';r.style.color='red'}}
+</script>
+</body>
+</html>
+
