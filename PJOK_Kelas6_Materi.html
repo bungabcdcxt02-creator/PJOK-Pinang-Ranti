@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi PJOK Kelas 6</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #22c55e;
+    --green-dark: #16a34a;
+    --green-light: #bbf7d0;
+    --blue: #3b82f6;
+    --blue-dark: #1d4ed8;
+    --blue-light: #bfdbfe;
+    --orange: #f97316;
+    --orange-light: #fed7aa;
+    --red: #ef4444;
+    --red-light: #fecaca;
+    --purple: #a855f7;
+    --purple-light: #e9d5ff;
+    --yellow: #eab308;
+    --yellow-light: #fef08a;
+    --teal: #14b8a6;
+    --teal-light: #ccfbf1;
+    --bg: #f0fdf4;
+    --card-bg: #ffffff;
+    --text: #1a2e1a;
+    --text-muted: #4b6b4b;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+    --radius: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(34,197,94,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(59,130,246,0.10) 0%, transparent 50%);
+  }
+
+  header {
+    background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #4ade80 100%);
+    padding: 40px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -30px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .header-emoji { font-size: 3.5rem; margin-bottom: 10px; display: block; }
+  header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+  }
+  header p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    margin-top: 8px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .badge {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    border-radius: 999px;
+    padding: 5px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 2px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(6px);
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 20px 20px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 999px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    background: #fff;
+    color: var(--text-muted);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .tab-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  .tab-btn.active { color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  .tab-btn[data-tab="senam"].active { background: var(--green); }
+  .tab-btn[data-tab="renang"].active { background: var(--blue); }
+  .tab-btn[data-tab="sepakbola"].active { background: var(--orange); }
+  .tab-btn[data-tab="lainnya"].active { background: var(--purple); }
+  .tab-btn[data-tab="all"].active { background: linear-gradient(135deg, var(--green), var(--blue)); }
+
+  main {
+    max-width: 1000px;
+    margin: 24px auto 60px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    animation: fadeUp 0.4s ease both;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-header {
+    padding: 18px 22px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 2px solid;
+  }
+  .card-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .card-header h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+  .card-header .kisi-no {
+    margin-left: auto;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .card-body { padding: 18px 22px 20px; }
+  .card-body p { line-height: 1.7; font-size: 0.97rem; color: #374151; }
+
+  /* Color themes */
+  .theme-green .card-header { border-color: var(--green-light); background: linear-gradient(135deg, #f0fdf4, #fff); }
+  .theme-green .card-icon { background: var(--green-light); color: var(--green-dark); }
+  .theme-green .card-header h2 { color: var(--green-dark); }
+  .theme-green .kisi-no { background: var(--green-light); color: var(--green-dark); }
+
+  .theme-blue .card-header { border-color: var(--blue-light); background: linear-gradient(135deg, #eff6ff, #fff); }
+  .theme-blue .card-icon { background: var(--blue-light); color: var(--blue-dark); }
+  .theme-blue .card-header h2 { color: var(--blue-dark); }
+  .theme-blue .kisi-no { background: var(--blue-light); color: var(--blue-dark); }
+
+  .theme-orange .card-header { border-color: var(--orange-light); background: linear-gradient(135deg, #fff7ed, #fff); }
+  .theme-orange .card-icon { background: var(--orange-light); color: #c2410c; }
+  .theme-orange .card-header h2 { color: #c2410c; }
+  .theme-orange .kisi-no { background: var(--orange-light); color: #c2410c; }
+
+  .theme-red .card-header { border-color: var(--red-light); background: linear-gradient(135deg, #fff1f2, #fff); }
+  .theme-red .card-icon { background: var(--red-light); color: #b91c1c; }
+  .theme-red .card-header h2 { color: #b91c1c; }
+  .theme-red .kisi-no { background: var(--red-light); color: #b91c1c); }
+
+  .theme-purple .card-header { border-color: var(--purple-light); background: linear-gradient(135deg, #faf5ff, #fff); }
+  .theme-purple .card-icon { background: var(--purple-light); color: #7e22ce; }
+  .theme-purple .card-header h2 { color: #7e22ce; }
+  .theme-purple .kisi-no { background: var(--purple-light); color: #7e22ce; }
+
+  .theme-yellow .card-header { border-color: var(--yellow-light); background: linear-gradient(135deg, #fefce8, #fff); }
+  .theme-yellow .card-icon { background: var(--yellow-light); color: #a16207; }
+  .theme-yellow .card-header h2 { color: #a16207; }
+  .theme-yellow .kisi-no { background: var(--yellow-light); color: #a16207; }
+
+  .theme-teal .card-header { border-color: var(--teal-light); background: linear-gradient(135deg, #f0fdfa, #fff); }
+  .theme-teal .card-icon { background: var(--teal-light); color: #0f766e; }
+  .theme-teal .card-header h2 { color: #0f766e; }
+  .theme-teal .kisi-no { background: var(--teal-light); color: #0f766e; }
+
+  /* Steps list */
+  .steps { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .steps li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: background 0.2s;
+  }
+  .steps li:hover { background: #f0fdf4; }
+  .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Grid chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+  .chip-green { background: var(--green-light); color: var(--green-dark); }
+  .chip-blue { background: var(--blue-light); color: var(--blue-dark); }
+  .chip-orange { background: var(--orange-light); color: #c2410c; }
+  .chip-purple { background: var(--purple-light); color: #7e22ce; }
+  .chip-yellow { background: var(--yellow-light); color: #a16207; }
+  .chip-teal { background: var(--teal-light); color: #0f766e; }
+  .chip-red { background: var(--red-light); color: #b91c1c; }
+
+  /* Table */
+  .org-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.93rem; }
+  .org-table th {
+    background: linear-gradient(135deg, var(--green-dark), var(--green));
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+  }
+  .org-table th:first-child { border-radius: 10px 0 0 0; }
+  .org-table th:last-child { border-radius: 0 10px 0 0; }
+  .org-table td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; }
+  .org-table tr:last-child td { border-bottom: none; }
+  .org-table tr:nth-child(even) td { background: #f8fffe; }
+  .org-table tr:hover td { background: #f0fdf4; }
+  .org-table td:first-child { font-weight: 800; color: var(--green-dark); }
+
+  /* Definition list */
+  .def-list { display: flex; flex-direction: column; gap: 10px; }
+  .def-item {
+    display: flex;
+    gap: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f9fafb;
+    transition: background 0.2s;
+  }
+  .def-item:hover { background: #f0fdf4; }
+  .def-term {
+    background: var(--orange-light);
+    color: #c2410c;
+    font-weight: 800;
+    padding: 10px 14px;
+    min-width: 130px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  .def-desc {
+    padding: 10px 14px;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: #374151;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Info box */
+  .info-box {
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .info-box .info-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .info-box-green { background: #f0fdf4; border-left: 4px solid var(--green); color: #14532d; }
+  .info-box-blue { background: #eff6ff; border-left: 4px solid var(--blue); color: #1e3a8a; }
+  .info-box-orange { background: #fff7ed; border-left: 4px solid var(--orange); color: #7c2d12; }
+  .info-box-purple { background: #faf5ff; border-left: 4px solid var(--purple); color: #4c1d95; }
+  .info-box-red { background: #fff1f2; border-left: 4px solid var(--red); color: #7f1d1d; }
+  .info-box-teal { background: #f0fdfa; border-left: 4px solid var(--teal); color: #134e4a; }
+  .info-box-yellow { background: #fefce8; border-left: 4px solid var(--yellow); color: #713f12; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px) {
+    .two-col { grid-template-columns: 1fr; }
+    header h1 { font-size: 1.7rem; }
+    .tab-btn { font-size: 0.8rem; padding: 8px 14px; }
+  }
+
+  /* Player count cards */
+  .player-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .player-card {
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+  .player-card .sport-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+  .player-card .count { font-family: 'Baloo 2', cursive; font-size: 3rem; font-weight: 800; line-height: 1; }
+  .player-card .label { font-size: 0.8rem; font-weight: 600; margin-top: 4px; }
+  .player-sepak { background: var(--orange-light); color: #c2410c; }
+  .player-basket { background: var(--purple-light); color: #7e22ce; }
+
+  .hidden { display: none !important; }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="header-emoji">🏃‍♂️</span>
+  <h1>Materi PJOK Kelas 6</h1>
+  <p>Pendidikan Jasmani, Olahraga & Kesehatan — PSKA</p>
+  <div class="badge-row">
+    <span class="badge">🤸 Senam</span>
+    <span class="badge">🏊 Renang</span>
+    <span class="badge">⚽ Sepak Bola</span>
+    <span class="badge">🏀 Bola Basket</span>
+    <span class="badge">🏥 Kesehatan</span>
+  </div>
+</header>
+
+<div class="nav-tabs">
+  <button class="tab-btn active" data-tab="all">🗂️ Semua Materi</button>
+  <button class="tab-btn" data-tab="senam">🤸 Senam</button>
+  <button class="tab-btn" data-tab="renang">🏊 Renang</button>
+  <button class="tab-btn" data-tab="sepakbola">⚽ Olahraga Tim</button>
+  <button class="tab-btn" data-tab="lainnya">📚 Lainnya</button>
+</div>
+
+<main>
+
+  <!-- ===================== SENAM ===================== -->
+  <div class="card theme-green" data-category="senam">
+    <div class="card-header">
+      <div class="card-icon">🤸</div>
+      <h2>Gerakan Senam Lantai</h2>
+      <span class="kisi-no">No. 1</span>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:12px;">Senam lantai adalah senam yang dilakukan di atas matras atau lantai. Berikut adalah gerakan-gerakan dalam senam lantai:</p>
+      <div class="chips">
+        <span class="chip chip-green">🔄 Roll Depan</span>
+        <span class="chip chip-green">🔄 Roll Belakang</span>
+        <span class="chip chip-green">🌀 Meroda</span>
+        <span class="chip chip-green">🌉 Kayang</span>
+        <span class="chip chip-green">🕯️ Sikap Lilin</span>
+        <span class="chip chip-green">🐯 Lompat Harimau</span>
+        <span class="chip chip-green">🙃 Handstand</span>
+        <span class="chip chip-green">🙃 Headstand</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card theme-green" data-category="senam">
+    <div class="card-header">
+      <div class="card-icon">🔄</div>
+      <h2>Langkah-Langkah Gerakan Roll Depan</h2>
+      <span class="kisi-no">No. 2</span>
+    </div>
+    <div class="card-body">
+      <ul class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span>Posisi <strong>jongkok menghadap ke matras</strong>. Kedua telapak tangan diletakkan di atas matras.</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span><strong>Angkat pinggul ke atas</strong> hingga kedua kaki lurus.</span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span><strong>Masukkan kepala</strong> di antara kedua lengan hingga pundak menempel matras.</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span><strong>Gulingkan badan ke depan</strong> hingga badan mulai dari tengkuk, punggung, dan pinggul menyentuh matras.</span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span>Kembali <strong>bersikap jongkok</strong>, kedua tangan lurus dan pandangan ke depan.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="two-col" data-category="senam">
+    <div class="card theme-yellow">
+      <div class="card-header">
+        <div class="card-icon">🕯️</div>
+        <h2>Sikap Lilin</h2>
+        <span class="kisi-no">No. 3</span>
+      </div>
+      <div class="card-body">
+        <div class="info-box info-box-yellow">
+          <span class="info-icon">💡</span>
+          <span>Sikap lilin adalah gerakan senam lantai di mana <strong>kedua kaki berada di atas dalam posisi lurus</strong> sementara <strong>pinggul diangkat oleh kedua tangan</strong> yang menopang dari bawah. Tubuh membentuk posisi tegak seperti lilin.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card theme-orange">
+      <div class="card-header">
+        <div class="card-icon">🌉</div>
+        <h2>Kayang</h2>
+        <span class="kisi-no">No. 14</span>
+      </div>
+      <div class="card-body">
+        <div class="info-box info-box-orange">
+          <span class="info-icon">🏋️</span>
+          <span>Gerakan <strong>kayang</strong> bermanfaat untuk melatih <strong>kelenturan (fleksibilitas)</strong> tubuh, terutama bagian punggung, bahu, dan pinggul.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SENAM IRAMA ===================== -->
+  <div class="card theme-purple" data-category="senam">
+    <div class="card-header">
+      <div class="card-icon">🎵</div>
+      <h2>Senam Irama</h2>
+      <span class="kisi-no">No. 4 & 17</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box info-box-purple" style="margin-bottom:16px;">
+        <span class="info-icon">🎶</span>
+        <span><strong>Senam irama</strong> adalah gerakan senam yang menggunakan <strong>iringan musik, ketukan, dan hitungan</strong> sebagai panduan tempo gerakan.</span>
+      </div>
+      <p style="margin-bottom:12px; font-weight:700; color:#6b21a8;">Gerakan-gerakan dalam senam irama:</p>
+      <div class="chips">
+        <span class="chip chip-purple">👟 V Step</span>
+        <span class="chip chip-purple">👟 Single Step</span>
+        <span class="chip chip-purple">👟 Double Step</span>
+        <span class="chip chip-purple">💪 Menekuk & Mengangkat Siku ke Samping</span>
+        <span class="chip chip-purple">🤲 Langkah Biasa + Ayunan Dua Lengan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== RENANG ===================== -->
+  <div class="card theme-blue" data-category="renang">
+    <div class="card-header">
+      <div class="card-icon">🏊</div>
+      <h2>Macam-Macam Gaya Renang</h2>
+      <span class="kisi-no">No. 10</span>
+    </div>
+    <div class="card-body">
+      <div class="chips" style="margin-bottom:14px;">
+        <span class="chip chip-blue">🌊 Gaya Bebas</span>
+        <span class="chip chip-blue">🐸 Gaya Dada</span>
+        <span class="chip chip-teal">🦋 Gaya Kupu-Kupu</span>
+        <span class="chip chip-teal">🔄 Gaya Punggung</span>
+      </div>
+      <div class="info-box info-box-blue">
+        <span class="info-icon">ℹ️</span>
+        <span>Renang adalah olahraga air yang melatih seluruh otot tubuh. Ada 4 gaya resmi dalam perlombaan renang internasional.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col" data-category="renang">
+    <div class="card theme-blue">
+      <div class="card-header">
+        <div class="card-icon">💨</div>
+        <h2>Cara Pengambilan Nafas Renang</h2>
+        <span class="kisi-no">No. 8</span>
+      </div>
+      <div class="card-body">
+        <div class="info-box info-box-blue">
+          <span class="info-icon">🫁</span>
+          <span>Teknik dasar pengambilan napas yang benar saat renang: <br><strong>Ambil napas dari mulut → Buang melalui hidung sambil membuat gelembung udara di dalam air.</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card theme-teal">
+      <div class="card-header">
+        <div class="card-icon">🌊</div>
+        <h2>Gerakan Meluncur</h2>
+        <span class="kisi-no">No. 9</span>
+      </div>
+      <div class="card-body">
+        <div class="info-box info-box-teal">
+          <span class="info-icon">🏊‍♂️</span>
+          <span><strong>Gerakan meluncur</strong> adalah gerakan dasar dalam renang di mana tubuh meluncur lurus di atas air dengan posisi streamline (aerodinamis) untuk meminimalkan hambatan air.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== OLAHRAGA TIM ===================== -->
+  <div class="card theme-orange" data-category="sepakbola">
+    <div class="card-header">
+      <div class="card-icon">⚽</div>
+      <h2>Teknik Dasar Sepak Bola</h2>
+      <span class="kisi-no">No. 12</span>
+    </div>
+    <div class="card-body">
+      <div class="def-list">
+        <div class="def-item">
+          <span class="def-term">⚽ Dribbling</span>
+          <span class="def-desc">Menggiring bola — menggerakkan bola dengan kaki sambil berlari</span>
+        </div>
+        <div class="def-item">
+          <span class="def-term">🎯 Shooting</span>
+          <span class="def-desc">Menembak bola — menendang bola ke arah gawang</span>
+        </div>
+        <div class="def-item">
+          <span class="def-term">🗣️ Heading</span>
+          <span class="def-desc">Menyundul bola — menggunakan kepala untuk memainkan bola</span>
+        </div>
+        <div class="def-item">
+          <span class="def-term">🤝 Passing</span>
+          <span class="def-desc">Mengoper bola — memberikan bola kepada rekan satu tim</span>
+        </div>
+        <div class="def-item">
+          <span class="def-term">🦵 Tackle</span>
+          <span class="def-desc">Merebut bola dari lawan menggunakan kaki</span>
+        </div>
+        <div class="def-item">
+          <span class="def-term">🎮 Ball Control</span>
+          <span class="def-desc">Mengontrol bola — menguasai bola yang datang ke arah pemain</span>
+        </div>
+        <div class="def-item">
+          <span class="def-term">🧤 Goal Keeping</span>
+          <span class="def-desc">Penjaga gawang — bertugas menjaga gawang dari kebobolan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card theme-orange" data-category="sepakbola">
+    <div class="card-header">
+      <div class="card-icon">👥</div>
+      <h2>Jumlah Pemain Tim Olahraga</h2>
+      <span class="kisi-no">No. 15 & 16</span>
+    </div>
+    <div class="card-body">
+      <div class="player-grid">
+        <div class="player-card player-sepak">
+          <div class="sport-name">⚽ Sepak Bola</div>
+          <div class="count">11</div>
+          <div class="label">pemain per tim</div>
+        </div>
+        <div class="player-card player-basket">
+          <div class="sport-name">🏀 Bola Basket</div>
+          <div class="count">5</div>
+          <div class="label">pemain per tim</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== INDUK ORGANISASI ===================== -->
+  <div class="card theme-green" data-category="lainnya">
+    <div class="card-header">
+      <div class="card-icon">🏛️</div>
+      <h2>Induk Organisasi Olahraga Indonesia</h2>
+      <span class="kisi-no">No. 13</span>
+    </div>
+    <div class="card-body">
+      <div style="overflow-x:auto;">
+        <table class="org-table">
+          <thead>
+            <tr>
+              <th>Singkatan</th>
+              <th>Kepanjangan</th>
+              <th>Olahraga</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>IPSI</td><td>Ikatan Pencak Silat Indonesia</td><td>🥋 Pencak Silat</td></tr>
+            <tr><td>PASI</td><td>Persatuan Atletik Seluruh Indonesia</td><td>🏃 Atletik</td></tr>
+            <tr><td>PBVSI</td><td>Persatuan Bola Voli Seluruh Indonesia</td><td>🏐 Bola Voli</td></tr>
+            <tr><td>PSSI</td><td>Persatuan Sepak Bola Seluruh Indonesia</td><td>⚽ Sepak Bola</td></tr>
+            <tr><td>PERBASI</td><td>Persatuan Bola Basket Seluruh Indonesia</td><td>🏀 Bola Basket</td></tr>
+            <tr><td>PSTI</td><td>Persatuan Sepak Takraw Indonesia</td><td>🏸 Sepak Takraw</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== KESEHATAN ===================== -->
+  <div class="card theme-red" data-category="lainnya">
+    <div class="card-header">
+      <div class="card-icon">🏥</div>
+      <h2>Urethritis — Kesehatan</h2>
+      <span class="kisi-no">No. 11</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box info-box-red">
+        <span class="info-icon">⚕️</span>
+        <div>
+          <p><strong>Urethritis</strong> adalah kondisi di mana seseorang mengalami <strong>infeksi atau peradangan pada bagian uretra</strong> (saluran kemih).</p>
+          <p style="margin-top:8px;">Uretra adalah saluran yang berfungsi membawa urine keluar dari tubuh. Peradangan ini dapat menyebabkan rasa nyeri atau tidak nyaman saat buang air kecil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== KASTI ===================== -->
+  <div class="card theme-teal" data-category="sepakbola">
+    <div class="card-header">
+      <div class="card-icon">🏏</div>
+      <h2>Cara Bermain Kasti & Mendapat Poin</h2>
+      <span class="kisi-no">No. 18</span>
+    </div>
+    <div class="card-body">
+      <div class="info-box info-box-teal" style="margin-bottom:14px;">
+        <span class="info-icon">🏆</span>
+        <span>Cara mendapatkan poin dalam permainan kasti: <strong>Regu pemukul harus memukul bola yang dilempar oleh regu penjaga, lalu berlari melewati beberapa base hingga kembali ke base awal.</strong></span>
+      </div>
+      <div class="chips">
+        <span class="chip chip-teal">🏏 Pukul bola</span>
+        <span class="chip chip-teal">🏃 Lari ke base</span>
+        <span class="chip chip-teal">🔄 Kembali ke base awal</span>
+        <span class="chip chip-teal">✅ Poin didapat!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== RINGKASAN ===================== -->
+  <div class="card theme-green" data-category="all-summary" style="background: linear-gradient(135deg, #f0fdf4, #ecfdf5);">
+    <div class="card-header" style="border-color: #bbf7d0;">
+      <div class="card-icon">📋</div>
+      <h2>Ringkasan Semua Materi</h2>
+    </div>
+    <div class="card-body">
+      <div class="chips">
+        <span class="chip chip-green">No.1 Gerakan Senam Lantai (8 gerakan)</span>
+        <span class="chip chip-green">No.2 Langkah Roll Depan (5 langkah)</span>
+        <span class="chip chip-yellow">No.3 Sikap Lilin</span>
+        <span class="chip chip-purple">No.4 Gerakan Senam Irama</span>
+        <span class="chip chip-purple">No.5-6 Kombinasi Gerak Senam Irama</span>
+        <span class="chip chip-blue">No.7-9 Gaya & Teknik Renang</span>
+        <span class="chip chip-blue">No.10 Macam Gaya Renang</span>
+        <span class="chip chip-red">No.11 Urethritis</span>
+        <span class="chip chip-orange">No.12 Teknik Sepak Bola (7 teknik)</span>
+        <span class="chip chip-green">No.13 Induk Organisasi (6 org.)</span>
+        <span class="chip chip-orange">No.14 Manfaat Kayang</span>
+        <span class="chip chip-orange">No.15 Pemain Sepak Bola = 11</span>
+        <span class="chip chip-purple">No.16 Pemain Bola Basket = 5</span>
+        <span class="chip chip-purple">No.17 Pengertian Senam Irama</span>
+        <span class="chip chip-teal">No.18 Cara Bermain Kasti</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  📚 Materi PJOK PSKA Kelas 6 &nbsp;•&nbsp; Semangat Belajar! 💪
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const cards = document.querySelectorAll('.card, .two-col');
+
+  const catMap = {
+    senam: ['senam'],
+    renang: ['renang'],
+    sepakbola: ['sepakbola'],
+    lainnya: ['lainnya'],
+    all: ['senam','renang','sepakbola','lainnya','all-summary']
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const active = tab.dataset.tab;
+      const allowed = catMap[active];
+      cards.forEach(card => {
+        const cat = card.dataset.category;
+        if (!cat) {
+          // two-col wrapper — check children
+          const children = card.querySelectorAll('[data-category]');
+          let show = false;
+          children.forEach(c => { if (allowed.includes(c.dataset.category)) show = true; });
+          card.style.display = show ? '' : 'none';
+        } else {
+          card.style.display = allowed.includes(cat) ? '' : 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
